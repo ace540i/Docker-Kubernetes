@@ -1,3 +1,6 @@
+#check if Docker is running
+tasklist | findstr /i "docker"
+
 # Docker-Kubernetes
 # install Docker minikube, kubectl
 minikube start
