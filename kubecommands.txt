@@ -1,3 +1,20 @@
+#check if Docker is running. Kill orphan pids
+tasklist | findstr /i "docker"
+#List Running Containers
+docker ps -a
+docker exec -it 00cd4356acee2100cc6fd34248064cdde00552a206a307221ff5356e1dbb77b0 ps aux
+
+#go inside container
+docker exec -it <container_id> sh
+
+#start container interactive
+docker run -it <image_name> /bin/bash
+
+
+
+kubectl get po --all-namespaces
+kubectl get pods --all-namespaces -o wide
+
 # install Docker minikube, kubectl
 minikube start
 kubectl cluster-info
