@@ -1,0 +1,7 @@
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sql1
+
+docker network inspect customnet
+
+docker network create   --subnet=192.168.100.0/24   --gateway=192.168.100.1   customnet
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=password'   --name sql1   --net customnet   --ip 192.168.100.10   -p 1433:1433   -d mcr.microsoft.com/mssql/server:2022-latest
+  
