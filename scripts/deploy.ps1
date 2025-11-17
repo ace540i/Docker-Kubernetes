@@ -15,10 +15,11 @@ az account set --subscription $env:AZURE_SUBSCRIPTION_ID
 
 Write-Host "Deploying storage account $StorageAccountName into $ResourceGroupName..."
 param(
-    [string]$ResourceGroupName = "git-test-rg",
-    [string]$Location = "eastus",
+    [string]$ResourceGroupName = "git-test-rg"
+    [string]$Location = "eastus"
     [string]$StorageAccountName = "demostorageacct123"
 )
+
 
 Write-Host "Checking existing storage account $StorageAccountName in $ResourceGroupName..."
 
