@@ -1,7 +1,7 @@
 param(
     [string]$ResourceGroupName = "git-test-rg",
     [string]$Location = "eastus",
-    [string]$StorageAccountName = "demostorageacct123-mike"
+    [string]$StorageAccountName = "demostorageacct123mike99"
 )
 
 Write-Host "Logging into Azure..."
