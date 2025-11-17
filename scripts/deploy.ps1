@@ -19,3 +19,5 @@ az storage account create `
     --resource-group $ResourceGroupName `
     --location $Location `
     --sku Standard_LRS
+Write-Host "Deployment complete. Storage account details:"
+Write-Host $storage
