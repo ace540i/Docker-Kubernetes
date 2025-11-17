@@ -4,24 +4,14 @@ on:
   push:
     branches:
       - main
+
 jobs:
   deploy:
     runs-on: windows-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Login to Azure
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - name: Check secret presence
-        run: |
-          if [ -z "${{ secrets.AZURE_CREDENTIALS }}" ]; then
-          echo "AZURE_CREDENTIALS is empty!"
-          else
-          echo "AZURE_CREDENTIALS is set."
-          fi
-        shell: bash
+
       - name: Run PowerShell deployment script
         shell: pwsh
         run: ./scripts/deploy.ps1 -ResourceGroupName "git-test-rg" -Location "eastus" -StorageAccountName "demostorageacct123"
