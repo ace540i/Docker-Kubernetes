@@ -14,7 +14,7 @@ jobs:
 
       - name: Run PowerShell deployment script
         shell: pwsh
-        run: ./scripts/deploy.ps1 -ResourceGroupName "git-test-rg" -Location "eastus" -StorageAccountName "demostorageacct123"
+        run: ./scripts/deploy.ps1 -ResourceGroupName "git-test-rg" -Location "eastus" -StorageAccountName "demostorageacct123mike99"
         env:
           AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
