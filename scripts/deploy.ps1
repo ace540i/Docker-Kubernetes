@@ -14,10 +14,23 @@ Write-Host "Setting subscription..."
 az account set --subscription $env:AZURE_SUBSCRIPTION_ID
 
 Write-Host "Deploying storage account $StorageAccountName into $ResourceGroupName..."
-az storage account create `
+param(
+    [string]$ResourceGroupName = "git-test-rg",
+    [string]$Location = "eastus",
+    [string]$StorageAccountName = "demostorageacct123"
+)
+
+Write-Host "Checking existing storage account $StorageAccountName in $ResourceGroupName..."
+
+$storage = az storage account show `
     --name $StorageAccountName `
     --resource-group $ResourceGroupName `
-    --location $Location `
-    --sku Standard_LRS
-Write-Host "Deployment complete. Storage account details:"
+    --output json
+
+if ($storage) {
+    Write-Host "Storage account already exists. Details:"
+    Write-Host $storage
+} else {
+    Write-Host "Storage account not found. Please verify name and resource group."
+}
 Write-Host $storage
