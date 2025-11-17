@@ -1,6 +1,6 @@
 param(
-    [string]$ResourceGroupName = "git-test-rg";
-    [string]$Location = "eastus";
+    [string]$ResourceGroupName = "git-test-rg"
+    [string]$Location = "eastus"
     [string]$StorageAccountName = "demostorageacct123"
 )
 
